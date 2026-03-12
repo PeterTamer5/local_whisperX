@@ -215,7 +215,7 @@ def transcribe_task(args: dict, parser: argparse.ArgumentParser):
         logger.info("Performing diarization...")
         logger.info(f"Using model: {diarize_model_name}")
         results = []
-        diarize_model = DiarizationPipeline(model_name=diarize_model_name, token=hf_token, device=device, cache_dir=model_dir)
+        diarize_model = DiarizationPipeline(local_path)
         for result, input_audio_path in tmp_results:
             diarize_result = diarize_model(
                 input_audio_path, 
