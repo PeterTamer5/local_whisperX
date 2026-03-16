@@ -92,15 +92,10 @@ class DiarizationPipeline:
     def __init__(
         self,
         local_path=None,
-        model_name=None,
-        token=None,
         device: Optional[Union[str, torch.device]] = "cpu",
-        cache_dir=None,
     ):
         if isinstance(device, str):
             device = torch.device(device)
-        model_config = model_name or "pyannote/speaker-diarization-community-1"
-        logger.info(f"Loading diarization model: {model_config}")
         self.model = Pipeline.from_pretrained(local_path).to(device)
 
     def __call__(
