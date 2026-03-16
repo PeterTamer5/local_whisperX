@@ -206,14 +206,8 @@ def transcribe_task(args: dict, parser: argparse.ArgumentParser):
         torch.cuda.empty_cache()
 
     # >> Diarize
-    if diarize:
-        if hf_token is None:
-            logger.warning(
-                "No --hf_token provided, needs to be saved in environment variable, otherwise will throw error loading diarization model"
-            )
         tmp_results = results
         logger.info("Performing diarization...")
-        logger.info(f"Using model: {diarize_model_name}")
         results = []
         diarize_model = DiarizationPipeline(local_path)
         for result, input_audio_path in tmp_results:
