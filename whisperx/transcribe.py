@@ -50,7 +50,6 @@ def transcribe_task(args: dict, parser: argparse.ArgumentParser):
 
     return_char_alignments: bool = args.pop("return_char_alignments")
 
-    hf_token: str = args.pop("hf_token")
     vad_method: str = args.pop("vad_method")
     vad_onset: float = args.pop("vad_onset")
     vad_offset: float = args.pop("vad_offset")
